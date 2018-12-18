@@ -8,7 +8,14 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
+    
     <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <br/>
+        <a href="/quotes/create" class="btn btn-primary">Create Quotes</a>
+      </div>
+      </div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -23,8 +30,8 @@
           <tr>
             <td><%= quotes[i].name %></td>
             <td><%= quotes[i].quote %></td>
-            <td><a href="/quotes/edit/<%= quotes[i].id %>" class="btn btn-primary">Edit</a></td>
-            <td><a href="/quotes/delete/<%= quotes[i].id %>" class="btn btn-danger">Delete</a></td>
+            <td><a href="/quotes/edit/<%= quotes[i]._id %>" class="btn btn-primary">Edit</a></td>
+            <td><a href="/quotes/delete/<%= quotes[i]._id %>" class="btn btn-danger">Delete</a></td>
           </tr>
           <% } %>
         </tbody>
