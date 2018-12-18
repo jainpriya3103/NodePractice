@@ -24,13 +24,13 @@ QuoteRouter.route('/').get(function (req, res) {
       }
       else {
         console.log(quotes);
-        res.render('index', {quotes: quotes});
+        res.render('quotes/index', {quotes: quotes});
       }
     });
 });
 
 QuoteRouter.route('/create').get(function (req, res) {
-   res.render('create');
+   res.render('quotes/create');
  });
  
 QuoteRouter.post('/post', (req, res) => {
@@ -43,11 +43,23 @@ QuoteRouter.post('/post', (req, res) => {
   })
 });
 
+QuoteRouter.post('/insert', (req, res) => {
+  var quote={name:req.body.name,quote:req.body.quote};
+  console.log(db);
+  db.collection('quotes').insertOne(quote, (err, result) => {
+    if (err) return console.log(err)
+
+    console.log('saved to database')
+    res.redirect('/quotes')
+  })
+});
+
+
 QuoteRouter.route('/edit/:id').get(function (req, res) {
   db.collection('quotes').findOne({"_id": ObjectId(req.params.id.toString()) })
   .then(function (result){
       console.log(result);
-      res.render('edit', {quoteObj: result});
+      res.render('quotes/edit', {quoteObj: result});
   });
 });
 

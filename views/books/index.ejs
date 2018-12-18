@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Name</td>
+                    <td>Author</td>
+                    <td>Price</td>
+                    <td colspan="2">Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0; i < bookList.length; i++) { %>
+                    <tr>
+                        <td><%= bookList[i].name %></td>
+                        <td><%= bookList[i].author %></td>
+                        <td><%= bookList[i].price %></td>
+                        <td><a class="btn btn-success" href="/books/edit/<%= bookList[i]._id %>">Edit</a>
+                         <a class="btn btn-danger" href="/books/delete/<%= bookList[i]._id %>">Delete</a>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+
+        </table>
+    </div>
+</body>
+</html>

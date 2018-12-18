@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+const QuoteRouter = require('./routes/QuoteRouter');
+const BookRouter=require('./routes/BookRouter')
 
 app.listen(port, () => {
     console.log('listening on 3000')
@@ -14,6 +16,9 @@ app.listen(port, () => {
      res.sendFile(path.join(__dirname,'public', 'index.html'));
   });
 
-  const QuoteRouter = require('./routes/QuoteRouter');
+  
 
   app.use('/quotes', QuoteRouter);
+  app.use('/books',BookRouter);
+
+  
