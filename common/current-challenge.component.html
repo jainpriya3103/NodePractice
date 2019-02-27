@@ -1,0 +1,30 @@
+<ns-action-bar title="Current Challenge"></ns-action-bar>
+<StackLayout>
+  <Label 
+  class="title" 
+  text="The current challenge" 
+  style="font-size: 20"
+  horizontalAlignment="center"
+ 
+ ></Label>
+ <Button 
+ text="Current-Challenge"
+ class="btn btn-primary"
+ (tap)="onTap()">
+ </Button>
+</StackLayout>
+
+<!-- <ListView
+  [items]="challenges"
+  (itemTap)="onItemTap($event)"
+  iosEstimatedRowHeight="65"
+>
+  <ng-template let-challenge= "item" let-i="index">
+    <GridLayout rows="40,auto" columns="50,*"> -->
+      <!-- for ios we need to give iosEstimatedRowHeight because it overlaps the content -->
+      <!-- <Label [text]="i" row="0" col="0" rowSpan="2"></Label>
+      <Label [text]="challenge" row="0" col="1"></Label>
+      <Label text="Item-content row 1" row="1" col="1"></Label>
+    </GridLayout>
+  </ng-template>
+</ListView> -->
